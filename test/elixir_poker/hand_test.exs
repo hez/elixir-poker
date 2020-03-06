@@ -66,4 +66,20 @@ defmodule ElixirPoker.HandTest do
       assert Hand.compare(one, two) == :gt
     end
   end
+
+  describe "Hand.compare/2" do
+    setup do
+      hands =
+        "QD 9C 5C 3C KD|7C QS QC JC 3H|AS 8C QH 3S 2S|AC TH 6D 5D AD|2D KC TD 8S 7H|JD 6H 4S 6C TS"
+        |> String.split("|")
+        |> Enum.map(&Hand.parse/1)
+
+      {:ok, [hands: hands]}
+    end
+
+    test "It should sort hands of the same value based on card value", %{hands: hands} do
+      expected = [{65, 67}, {84, 72}, {54, 68}, {53, 68}, {65, 68}]
+      assert hands |> Enum.sort_by(& &1, {:desc, Hand}) |> List.first() == expected
+    end
+  end
 end

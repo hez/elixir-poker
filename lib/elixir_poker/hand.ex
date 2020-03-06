@@ -41,10 +41,6 @@ defmodule ElixirPoker.Hand do
     end
   end
 
-  def lt?(rv, ov) when rv == ov, do: false
-  def lt?(rv, ov) when rv > ov, do: false
-  def lt?(rv, ov) when rv < ov, do: true
-
   def rank(hand) do
     cond do
       straight_flush?(hand) -> :straight_flush
@@ -66,6 +62,8 @@ defmodule ElixirPoker.Hand do
       value =
         hand
         |> rank_sizes()
+        # Convert rank to sorting value
+        |> Enum.map(&{Card.rank_sort_value(elem(&1, 0)), elem(&1, 1)})
         |> Enum.reduce(@rank_map, fn {key, val}, acc ->
           case val do
             4 -> %{acc | four_rank: key}
