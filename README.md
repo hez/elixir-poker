@@ -1,21 +1,15 @@
 # ElixirPoker
 
-**TODO: Add description**
+Poker hand evaulator. Built to see what the comparisons with the following previous art would be.
 
-## Installation
+- https://github.com/gmacdougall/ruby-poker
+- https://github.com/snarfmason/crystal-poker
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_poker` to your list of dependencies in `mix.exs`:
+# Running
 
-```elixir
-def deps do
-  [
-    {:elixir_poker, "~> 0.1.0"}
-  ]
-end
+Takes a bunch of poker hands and outputs the winners
+
+```bash
+$ echo "KS 4S AD 4C 7D|TD 6S 4H 4D KC|8C 3C 3S AS TS|2S JH 2H 8H TH|6C QS 2C 5H 9C|5C JS 2D 7C QH" | mix run run.exs
+KS 4S AD 4C 7D|TD 6S 4H 4D KC|8C 3C 3S AS TS|2S JH 2H 8H TH|6C QS 2C 5H 9C|5C JS 2D 7C QH, Winner: TD 6S 4H 4D KC, Rank: One Pair
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/elixir_poker](https://hexdocs.pm/elixir_poker).
-
