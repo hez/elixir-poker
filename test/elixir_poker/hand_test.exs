@@ -19,15 +19,15 @@ defmodule ElixirPoker.HandTest do
 
   describe "hand detection" do
     test "straight flush", %{straight_flush: hand} do
-      assert Hand.straight_flush?(hand)
+      assert Hand.straight_flush?(hand, Hand.rank_sets(hand))
     end
 
     test "four of a kind", %{four_of_a_kind: hand} do
-      assert Hand.four_of_a_kind?(hand)
+      assert Hand.four_of_a_kind?(hand, Hand.rank_sets(hand))
     end
 
     test "full house", %{full_house: hand} do
-      assert Hand.full_house?(hand)
+      assert Hand.full_house?(hand, Hand.rank_sets(hand))
     end
 
     test "flush", %{flush: hand} do
@@ -35,19 +35,19 @@ defmodule ElixirPoker.HandTest do
     end
 
     test "straight", %{straight: hand} do
-      assert Hand.straight?(hand)
+      assert Hand.straight?(hand, Hand.rank_sets(hand))
     end
 
     test "three of a kind", %{three_of_a_kind: hand} do
-      assert Hand.three_of_a_kind?(hand)
+      assert Hand.three_of_a_kind?(hand, Hand.rank_sets(hand))
     end
 
     test "two pair", %{two_pair: hand} do
-      assert Hand.two_pair?(hand)
+      assert Hand.two_pair?(hand, Hand.rank_sets(hand))
     end
 
     test "pair", %{pair: hand} do
-      assert Hand.pair?(hand)
+      assert Hand.pair?(hand, Hand.rank_sets(hand))
     end
   end
 
